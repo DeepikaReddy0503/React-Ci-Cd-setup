@@ -21,6 +21,10 @@ jobs:
       - name: "Setup vercel cli"
         run: npm install -g vercel
 
+      - name: List artifacts
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \https://api.github.com/repos/DeepikaReddy0503/React-Ci-Cd-setup/actions/runs/$GITHUB_RUN_ID/artifacts
+
       - name: "Download build files"
         uses: actions/download-artifact@v4
         with:
